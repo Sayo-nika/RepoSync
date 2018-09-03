@@ -1,0 +1,10 @@
+/* Bulma handles most of the stuff, this is for alignment purposes. */
+
+body {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.hero {
+    padding-top: 0.5em !important;
+}
