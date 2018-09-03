@@ -6,4 +6,6 @@ applications:
   memory: 256M
   
   routes:
-   - route: ayane.maidcafe.me
+   - route: b.sayonika.moe
+  env:
+    OPTMIZE_MEMORY: true

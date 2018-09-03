@@ -3,10 +3,10 @@
  * @author Ayane Satomi
  */
  
- /*  global router */
+/*  global router */
  
- router.get("/", async (req, res) => {
-     res.render("index");
- })
+router.get("/", async (req, res) => {
+    res.render("index");
+});
  
- module.exports = router;
+module.exports = router;
