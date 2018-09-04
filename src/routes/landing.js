@@ -1,6 +1,6 @@
 /**
  * @file landing.js
- * @author Ayane Satomi
+ * @author Capuccino
  */
  
 /*  global router */

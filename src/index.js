@@ -1,6 +1,6 @@
 /**
  * @file Main file for Cartographer
- * @author Ayane Satomi
+ * @author Capuccino
  * @author Ovyerus
  * @license BSD-3-Clause
  */
