@@ -1,6 +1,7 @@
 /**
  * @file sync.js
  * @author bubmet
+ * @author Capuccino
  */
 
 /*  global router */
@@ -17,7 +18,7 @@ router.post("/reposync", async (req, res) => {
         const mimeType = getType(url);
         https.get(url, res => {
             res.once("data", chunk => {
-                await webdav.putFileContents("", chunk, {format: mimeType})
+                webdav.putFileContents("", chunk, {format: mimeType});
             });
         });
     });
