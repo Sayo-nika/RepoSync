@@ -27,7 +27,7 @@ global.webDavHost = process.env.REPOSYNC_WEBDAV_HOST || config.webDav.host;
 global.webDavUser = process.env.REPOSYNC_WEBDAV_USERNAME || config.webDav.user;
 global.webDavPassword = process.env.REPOSYNC_WEBDAV_PASSWORD || config.webDav.password;
 
-if (!URL_REGEX.test(webDavHost))
+if (!URL_REGEX.test(webDavHost)) throw new Error("Web DAV host is invalid!");
 
     app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
