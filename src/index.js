@@ -11,6 +11,7 @@ const path = require("path");
 const engines = require("consolidate");
 const fs = require("fs");
 const YAML = require("yamljs");
+const URL_REGEX = /^(https?:\/\/)?(((www\.)?[a-zA-Z0-9\.\-\_]+(\.[a-zA-Z]{2,3})+)|(\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b))(:[0-9]+)?(\/[a-zA-Z0-9\_\-\s\.\/\?\%\#\&\=]*)?$/i; // eslint-disable-line
 
 const app = express();
 global.router = express.Router();
@@ -22,9 +23,11 @@ try {
     config = {};
 }
 
-global.webDavHost = process.env.REPOSYNC_WEBDAV_HOST || config.webDav.url;
+global.webDavHost = process.env.REPOSYNC_WEBDAV_HOST || config.webDav.host;
 global.webDavUser = process.env.REPOSYNC_WEBDAV_USERNAME || config.webDav.user;
 global.webDavPassword = process.env.REPOSYNC_WEBDAV_PASSWORD || config.webDav.password;
+
+if (!URL_REGEX.test(webDavHost))
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
