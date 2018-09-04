@@ -16,10 +16,10 @@ router.post("/reposync", async (req, res) => {
 
     atts.map(att => att.url).forEach(async url => {
         // get url -> upload to WebDAV
-        const mimeType = getType(url);
-        https.get(url, res => {
+        const mimeType = getType(att.url);
+        https.get(att.url, res => {
             res.once("data", chunk => {
-                webdav.putFileContents("", chunk, {format: ft(chunk).mime});
+                webdav.putFileContents(`/reposync_from_discord/${att.filename}`, chunk, {format: ft(chunk).mime});
             });
         });
     });
