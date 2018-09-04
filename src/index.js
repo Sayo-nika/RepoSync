@@ -38,7 +38,7 @@ app.engine("html", engines.mustache);
 
 app.get("/", require("./routes/landing"));
 
-app.get("/reposync", (req, res) => {
+app.get("/reposync", res => {
     res.redirect("/");
 });
 

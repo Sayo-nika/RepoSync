@@ -4,6 +4,9 @@
  */
 
 /*  global router */
+const webdav = require("webdav").createClient(webDavHost, webDavUser, webDavPassword);
+const ft = require("file-type");
+const https = require("https");
  
 router.post("/reposync", async (req, res) => {
     const atts = req.body.attachments;
@@ -11,7 +14,22 @@ router.post("/reposync", async (req, res) => {
         return res.send("No attachments.");
     atts.map(att => att.url).forEach(async url => {
         // get url -> upload to WebDAV
+        const mimeType = getType(url);
+        https.get(url, res => {
+            res.once("data", chunk => {
+                await webdav.putFileContents("", chunk, {format: mimeType})
+            });
+        });
     });
 });
- 
+
+
+function getType(url) {
+    https.get(url, res => {
+        res.once("data", chunk => {
+            res.destroy();
+            return ft(chunk).mime;
+        });
+    });
+}
 module.exports = router;

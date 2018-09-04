@@ -25,6 +25,7 @@
     "express": "^4.16.3",
     "got": "^9.0.0",
     "mustache": "^2.3.0",
+    "webdav": "^1.5.3",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
