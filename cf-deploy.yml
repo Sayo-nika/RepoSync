@@ -6,6 +6,6 @@ applications:
   memory: 256M
   
   routes:
-   - route: b.sayonika.moe
+   - route: a.sayonika.moe
   env:
     OPTMIZE_MEMORY: true
