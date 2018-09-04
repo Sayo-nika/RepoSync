@@ -1,4 +1,4 @@
-webdav:
+webDav:
   host: ""
   username: ""
   password: ""
