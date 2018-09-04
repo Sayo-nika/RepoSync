@@ -25,8 +25,6 @@ try {
 global.webDavHost = process.env.REPOSYNC_WEBDAV_HOST || config.webDav.url;
 global.webDavUser = process.env.REPOSYNC_WEBDAV_USERNAME || config.webDav.user;
 global.webDavPassword = process.env.REPOSYNC_WEBDAV_PASSWORD || config.webDav.password;
-global.discordURL = process.env.REPOSYNC_DISCORD_HOOK_URL || config.discord.webHookURL;
-
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
