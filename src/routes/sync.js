@@ -14,7 +14,7 @@ router.post("/reposync", async (req, res) => {
     // basic sanity check
     if (atts.length <= 0) return res.send("No attachments.");
 
-    atts.map(att => att.url).forEach(async url => {
+    atts.forEach(att => {
         // get url -> upload to WebDAV
         const mimeType = getType(att.url);
         https.get(att.url, res => {
