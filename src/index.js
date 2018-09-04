@@ -17,7 +17,7 @@ global.router = express.Router();
 let config;
 
 try {
-    config = YAML.parse(fs.readFileSync("./config.yml").toString());
+    config = YAML.parse(fs.readFileSync("../config.yml").toString());
 } catch(e) {
     config = {};
 }
