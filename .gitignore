@@ -1,4 +1,5 @@
 node_modules
 config.json
 cf-deploy-private.yml
+config.yml
 package-lock.json
